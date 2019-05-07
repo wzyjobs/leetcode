@@ -14,6 +14,7 @@ package com.ericgarvin.leetcode.easy.array;
  * 尽量减少操作次数。
  */
 public class MoveZeroes_283 {
+    //O(n^2)时间
     public void moveZeroes(int[] nums) {
         int temp = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -24,6 +25,19 @@ public class MoveZeroes_283 {
                     nums[j] = temp;
                 }
             }
+        }
+    }
+
+    //o(n)时间
+    public void moveZeroesA(int[] nums) {
+        int index = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[index++] = nums[i];
+            }
+        }
+        for (int j = index; j < nums.length; j++) {
+            nums[j] = 0;
         }
     }
 }
